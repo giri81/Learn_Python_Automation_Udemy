@@ -1,0 +1,20 @@
+{
+  "first_key": "first_value",
+  "course_data": [
+    {
+      "title": "abc",
+      "price": 100,
+      "copies": 40
+    },
+    {
+      "title": "def",
+      "price": 150,
+      "copies": 30
+    },
+    {
+      "title": "ghi",
+      "price": 200,
+      "copies": 20
+    }
+  ]
+}
