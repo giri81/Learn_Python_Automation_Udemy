@@ -1,0 +1,31 @@
+{
+  "person": {
+    "name": "John Doe",
+    "age": 30,
+    "address": {
+      "city": "New York",
+      "zipcode": "10001"
+    },
+    "emails": [
+      "john.doe@example.com",
+      "johndoe@gmail.com"
+    ]
+  },
+  "company": {
+    "name": "ABC Inc.",
+    "address": {
+      "city": "Los Angeles",
+      "zipcode": "90001"
+    },
+    "employees": [
+      {
+        "name": "Alice",
+        "position": "Manager"
+      },
+      {
+        "name": "Bob",
+        "position": "Developer"
+      }
+    ]
+  }
+}
