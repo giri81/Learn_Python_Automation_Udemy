@@ -1,6 +1,8 @@
 """Parse a json string to a dictionary using module method json.loads
    Parse a static json file using module method json.load
-   Required to understand the json content structure using a json editor
+   Compare two different jason files using dictionary objects
+   Prerequisites: understand the json content structure using a json editor
+   before
 
     Credits:
     - Original author: Rahul Shetty , udemy.com
@@ -51,10 +53,33 @@ def fetch_price(json_file, title):
     return None
 
 
+def cmp_json_files(file1, file2):
+    try:
+        with open(file1, "r") as f, open(file2, "r") as g:
+            data1 = json.load(f)
+            data2 = json.load(g)
+            return data1 == data2
+    except FileNotFoundError:
+        print("One or both files not found.")
+        return False
+    except json.JSONDecodeError:
+        print("One or both files are not valid JSON.")
+        return False
+
+
 json_file = 'static_file_2.json'
-title = input("Enter the title of the course: ")
+title = 'ghi'
 price = fetch_price(json_file, title)
 if price is not None:
     print(f"The price of '{title}' is: {price}")
 else:
     print(f"Course '{title}' not found.")
+
+# usage:
+file1 = 'static_file.json'
+file2 = 'static_file_2.json'
+result = cmp_json_files(file1, file2)
+if result:
+    print("The JSON files are identical.")
+else:
+    print("The JSON files are different.")
