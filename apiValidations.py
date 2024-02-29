@@ -27,14 +27,29 @@ json_response = response.json()
 
 print(type(json_response))
 print(json_response[0]['isbn'])
-assert response.status_code == 200
-print(response.headers)
+
+# Monitor response headers via assert
+# Note: Headers are retunred as dictionary
+
+# Validate if header 'Content-Type' is 'application/json;charset=UTF-8'
 assert response.headers['Content-Type'] == 'application/json;charset=UTF-8'
+
+# Validate response status code using assert
+#assert response.status_code == 200
+print(response.status_code)
+
 # Retrieve the book details with ISBN RGHCC
+# Get all the books and iterate
+
+flag = False # to know if found or not for print
 for actualBook in json_response:
     if actualBook['isbn'] == 'RGHCC':
         print(actualBook)
+        flag = True
         break
+
+if not flag:
+    print("RGHCC isbn book not present")
 
 expectedBook = {
     "book_name": "Learn API Automation with RestAssured",
